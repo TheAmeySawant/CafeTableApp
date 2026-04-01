@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#dddad3",
+              "on-background": "#1c1c18",
+              "primary": "#894d00",
+              "inverse-on-surface": "#f4f0e9",
+              "primary-fixed-dim": "#ffb874",
+              "on-surface": "#1c1c18",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#8c4f00",
+              "error": "#ba1a1a",
+              "background": "#fdf9f2",
+              "on-primary-fixed": "#2d1600",
+              "outline": "#857466",
+              "on-surface-variant": "#534437",
+              "surface-container-low": "#f7f3ec",
+              "surface-container-high": "#ebe8e1",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#755d56",
+              "tertiary-container": "#007f99",
+              "surface-container": "#f1ede6",
+              "tertiary-fixed": "#b2ebff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#fbdcd3",
+              "on-secondary-fixed-variant": "#57423b",
+              "on-tertiary-fixed-variant": "#004e5e",
+              "tertiary-fixed-dim": "#65d5f4",
+              "outline-variant": "#d8c3b2",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#dec0b7",
+              "secondary-container": "#f8d9d0",
+              "secondary": "#705952",
+              "primary-container": "#a96413",
+              "on-tertiary-fixed": "#001f27",
+              "surface-container-highest": "#e6e2db",
+              "primary-fixed": "#ffdcbf",
+              "tertiary": "#006579",
+              "on-primary-fixed-variant": "#6b3b00",
+              "inverse-primary": "#ffb874",
+              "on-secondary-fixed": "#281812",
+              "surface-variant": "#e6e2db",
+              "on-tertiary-container": "#fafdff",
+              "surface": "#fdf9f2",
+              "on-primary-container": "#fffbff",
+              "on-error": "#ffffff",
+              "surface-bright": "#fdf9f2",
+              "inverse-surface": "#31302c"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .font-noto-serif { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 left-64 z-40 bg-[#fdf9f2]/80 dark:bg-[#1c1c18]/80 backdrop-blur-md flex justify-between items-center px-8 py-4 border-b border-[#1c1c18]/10 dark:border-[#fdf9f2]/10">
+<div class="flex items-center gap-6">
+<span class="text-xl font-serif italic text-[#1c1c18] dark:text-[#fdf9f2]">Kitchen Display</span>
+<div class="flex gap-8 ml-8">
+<a class="font-serif font-medium uppercase tracking-wide text-sm text-[#894d00] border-b-2 border-[#894d00] pb-1" href="#">Active Orders</a>
+<a class="font-serif font-medium uppercase tracking-wide text-sm text-[#1c1c18] dark:text-[#fdf9f2] opacity-70 hover:opacity-100 hover:text-[#894d00] transition-colors" href="#">Completed</a>
+<a class="font-serif font-medium uppercase tracking-wide text-sm text-[#1c1c18] dark:text-[#fdf9f2] opacity-70 hover:opacity-100 hover:text-[#894d00] transition-colors" href="#">Alerts</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="font-medium text-on-surface">14:42:05</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface opacity-70 hover:opacity-100 transition-opacity">notifications</button>
+<button class="material-symbols-outlined text-on-surface opacity-70 hover:opacity-100 transition-opacity">settings</button>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<img alt="Kitchen Staff" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a professional chef in a clean white uniform against a blurred industrial kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB7eDmGTc9Kv5GHc3zpa-wLnjxgXr3cSxX619dqdd2cmnJTbhm0OM59EECET-AJG_EYU9n3hK4v80dOqVEPaR-So4uigtYdjlSsiapMA-fe2evla5A4Ngu2SbVppElm69fXRwaqpXhROZyj6WXdkEG4sJorOvlJJ2m0usnWUeVXcmtnyRKIrCV8vy3CKe1pW8bQl-XVSbjoaTfJaBg27X6AFkKOBUuwroPZ-hZ3LSJugE0hRhE0ttmPLFT8jR5k4dN3m4pfCwtOXU"/>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-serif font-medium uppercase tracking-wide text-xs hover:scale-105 transition-transform active:scale-95">Clock In</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Updated to match SCREEN_23/SCREEN_36 style) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#fdf9f2] dark:bg-[#1c1c18] flex flex-col py-8 space-y-4 shadow-[0_20px_40px_rgba(28,28,24,0.06)] z-50">
+<div class="px-6 mb-8">
+<h1 class="text-2xl font-bold italic text-[#894d00] dark:text-[#C47A2A] font-noto-serif">The Roasted Bean</h1>
+<p class="text-xs font-medium opacity-60 uppercase tracking-widest mt-1">Artisan Roast Admin</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Dashboard Tab (Active) -->
+<a class="bg-[#894d00] text-white rounded-full font-bold px-4 py-3 mx-2 my-1 flex items-center gap-3 scale-95 transition-transform duration-150 shadow-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">menu_book</span>
+<span class="text-sm font-medium">Menu Management</span>
+</a>
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">receipt_long</span>
+<span class="text-sm font-medium">Order History</span>
+</a>
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">qr_code_2</span>
+<span class="text-sm font-medium">Table &amp; QR</span>
+</a>
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 border-t border-outline-variant/10 pt-6">
+<div class="flex items-center gap-3">
+<img alt="Manager Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary/20" data-alt="professional portrait of a café manager in a clean linen shirt with warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQGbk7y0yi2mZzqaTu5WprfUdDcbIf2rU4yUYCE2BD87SNM91mSBkMSThPb9ZWZUWlyJf6-eGu0coYJi2FDIgAw62kLfbOV-_DztKo-9E3vjgT-WsFZ3NMU6TM_KO3HFJlYrSHWwyddSickUV0LD2Tw80oawp2urjtwKlURQSJ3aCbP3T2wLgaCE-sAi_9vlBT4E4NEAsogoxkjLjR2xgVx_Qja3jH79vSzDa3frEXCQf-kxSKew25f9hMbdCx1wN2N-WouB_LDE"/>
+<div>
+<p class="text-sm font-bold">James Miller</p>
+<p class="text-[10px] opacity-60">Senior Manager</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-5xl font-serif text-on-surface mb-2">Live Orders</h1>
+<p class="text-on-surface-variant font-medium uppercase tracking-[0.2em] text-xs">Rush Hour: 12 Active Tickets</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-6 py-3 bg-surface-container-high rounded-full text-sm font-bold text-on-surface hover:bg-surface-dim transition-all">
+<span class="material-symbols-outlined text-lg">filter_list</span> Filter
+                </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-full text-sm font-bold shadow-lg hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">pause</span> Pause Kitchen
+                </button>
+</div>
+</header>
+<!-- KDS Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Order Card: Pending (Yellow Status) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(28,28,24,0.06)] flex flex-col overflow-hidden border-t-8 border-[#ffb874]">
+<div class="p-5 border-b border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-[#ffdcbf] text-[#6b3b00] rounded-full text-[10px] font-bold uppercase tracking-wider">Pending</span>
+<div class="flex items-center gap-1 text-error font-bold">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm">08:12</span>
+</div>
+</div>
+<h3 class="text-2xl font-serif text-on-surface">Table 14</h3>
+<p class="text-xs text-on-surface-variant">Order #842 • 2 mins ago</p>
+</div>
+<div class="p-5 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">2x</span>
+<div>
+<p class="font-bold text-on-surface">Artisan Flat White</p>
+<p class="text-xs text-primary bg-primary-fixed/30 px-2 py-0.5 rounded mt-1 inline-block font-bold">no sugar</p>
+<p class="text-xs text-primary bg-primary-fixed/30 px-2 py-0.5 rounded mt-1 ml-1 inline-block font-bold">oat milk</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">1x</span>
+<div>
+<p class="font-bold text-on-surface">Smashed Avocado Toast</p>
+<p class="text-xs text-primary bg-primary-fixed/30 px-2 py-0.5 rounded mt-1 inline-block font-bold">extra chili flakes</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low mt-auto">
+<button class="w-full py-3 bg-[#894d00] text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-[#a96413] transition-colors">Start Preparing</button>
+</div>
+</div>
+<!-- Order Card: Preparing (Purple/Tertiary Status) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(28,28,24,0.06)] flex flex-col overflow-hidden border-t-8 border-tertiary">
+<div class="p-5 border-b border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-[10px] font-bold uppercase tracking-wider">Preparing</span>
+<div class="flex items-center gap-1 text-on-surface font-bold">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm">03:45</span>
+</div>
+</div>
+<h3 class="text-2xl font-serif text-on-surface">Pickup - Sarah</h3>
+<p class="text-xs text-on-surface-variant">Order #841 • 6 mins ago</p>
+</div>
+<div class="p-5 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">1x</span>
+<div>
+<p class="font-bold text-on-surface">Ethiopian Pour Over</p>
+<p class="text-xs opacity-60">V60 Method • Light Roast</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">1x</span>
+<div>
+<p class="font-bold text-on-surface">Cinnamon Swirl Bun</p>
+<p class="text-xs text-primary bg-primary-fixed/30 px-2 py-0.5 rounded mt-1 inline-block font-bold">warmed</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+</div>
+</div>
+<div class="p-4 bg-tertiary-container/10 mt-auto">
+<button class="w-full py-3 bg-tertiary text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:opacity-90 transition-colors">Mark Ready</button>
+</div>
+</div>
+<!-- Order Card: Ready (Green Status) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(28,28,24,0.06)] flex flex-col overflow-hidden border-t-8 border-[#007f99]">
+<div class="p-5 border-b border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-[10px] font-bold uppercase tracking-wider">Ready</span>
+<div class="flex items-center gap-1 text-on-surface-variant opacity-40 font-bold">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm">--:--</span>
+</div>
+</div>
+<h3 class="text-2xl font-serif text-on-surface">Table 08</h3>
+<p class="text-xs text-on-surface-variant">Order #839 • 14 mins ago</p>
+</div>
+<div class="p-5 flex-1 space-y-4 bg-surface-container-low/50">
+<div class="flex justify-between items-start opacity-50">
+<div class="flex gap-3 line-through">
+<span class="font-bold">1x</span>
+<div>
+<p class="font-bold text-on-surface">Cappuccino</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex justify-between items-start opacity-50">
+<div class="flex gap-3 line-through">
+<span class="font-bold">1x</span>
+<div>
+<p class="font-bold text-on-surface">Dark Chocolate Cookie</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container mt-auto">
+<button class="w-full py-3 border-2 border-tertiary text-tertiary rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-tertiary hover:text-white transition-all">Bump to Finished</button>
+</div>
+</div>
+<!-- Order Card: Pending (Long Ticket) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(28,28,24,0.06)] flex flex-col overflow-hidden border-t-8 border-[#ffb874]">
+<div class="p-5 border-b border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-[#ffdcbf] text-[#6b3b00] rounded-full text-[10px] font-bold uppercase tracking-wider">Pending</span>
+<div class="flex items-center gap-1 text-error font-bold">
+<span class="material-symbols-outlined text-sm">timer</span>
+<span class="text-sm">12:05</span>
+</div>
+</div>
+<h3 class="text-2xl font-serif text-on-surface">Table 22</h3>
+<p class="text-xs text-on-surface-variant">Order #845 • 1 min ago</p>
+</div>
+<div class="p-5 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">4x</span>
+<div>
+<p class="font-bold text-on-surface">Cold Brew Coffee</p>
+<p class="text-xs text-primary bg-primary-fixed/30 px-2 py-0.5 rounded mt-1 inline-block font-bold">extra ice</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">2x</span>
+<div>
+<p class="font-bold text-on-surface">Blueberry Muffin</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<span class="font-bold text-primary">1x</span>
+<div>
+<p class="font-bold text-on-surface">Espresso Shot</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low mt-auto">
+<button class="w-full py-3 bg-[#894d00] text-white rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-[#a96413] transition-colors">Start Preparing</button>
+</div>
+</div>
+</div>
+<!-- Featured Staff Bento Card (Asymmetric Layout) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-12 gap-6 h-auto">
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
+<div class="z-10 text-center md:text-left">
+<h2 class="text-3xl font-serif text-primary mb-2 italic">Roaster's Note</h2>
+<p class="text-on-surface-variant max-w-md leading-relaxed mb-6">"Our current Colombian batch is showing incredible floral notes today. Recommend a slightly coarser grind for pour-overs."</p>
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<img alt="Head Roaster" class="w-12 h-12 rounded-full object-cover grayscale brightness-110" data-alt="Close-up of a smiling mature man in a flannel shirt and apron, standing in front of a coffee roasting machine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjIX9nsl-clln99sqxz598Hju46toJ0EKVh9jz5TxrJ6WWxeuCs13ZRjGWEFH8eEbGIkIjRFZ2wbsN4KejuAfyVgg4S8SSyvR1IAZlNCn-vRPinxzoa0o4dJn3bXMzD_yMvU5-Vj9r7NQxHfkwZBkMKVhZoYiCpXHTj2hwFaJ8J0V8vIhg4LDFpsMtqjEvJylfH3EbOhIidqyXoV6HyT1MniPHcFEVcCEkrmzV31x6N74TkwegMlgpOC7XD-DnBoYj3VVxi5da8Tk"/>
+<div>
+<p class="font-bold text-on-surface">Julian V.</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">Head Roaster</p>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none">
+<img alt="Coffee Beans" class="object-cover h-full w-full" data-alt="Macro artistic shot of scattered brown coffee beans on a light textured surface with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiSlr9FdpFKwrWDLoWnRQiZ1BlNFN4imJdeuR_1vRbOTmOLrxjMchHgYB96OvRndi9JnBg4b9V6GFxGqnDhGjBmISyGoiUpYfGxaoBvog_ppENHE2qwBzsxyj3oIRgpaiS6Z4FMWEwnAbMZP6RaSjmk4iLS_Bvh7AThzlivmcEokKpu2sHuLODag3nr749_vt9D0oh6h4j7qUcTj3VO9CErWCWlz4WbUJE2U7nNqLd7dsctsDu6uSbXO6CS_oxE4uHvA0ZDUFDcpk"/>
+</div>
+</div>
+<div class="md:col-span-4 bg-[#894d00] rounded-xl p-8 text-on-primary flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-serif mb-4">Daily Performance</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-white/20 pb-2">
+<span class="text-xs opacity-70 uppercase tracking-widest">Avg. Prep Time</span>
+<span class="text-2xl font-bold">4:12</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/20 pb-2">
+<span class="text-xs opacity-70 uppercase tracking-widest">Tickets Finished</span>
+<span class="text-2xl font-bold">142</span>
+</div>
+</div>
+</div>
+<button class="mt-8 py-3 bg-white text-[#894d00] rounded-full font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform">View Full Report</button>
+</div>
+</div>
+</main>
+<!-- Floating "New Order" Action -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-[#894d00] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

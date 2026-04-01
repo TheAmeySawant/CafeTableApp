@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Theme (can be overridden via JS for multi-tenant) */
+  --primary: #FF5A5F;     /* Warm Accent */
+  --primary-hover: #ff787b;
+  --secondary: #1a1a1a;   /* Dark element */
+  
+  --bg-main: #f8f9fa;     /* Light gray bg */
+  --bg-card: #ffffff;
+  
+  --text-main: #333333;
+  --text-muted: #6c757d;
+  
+  --border-radius: 12px;
+  --border-color: #e9ecef;
+}
+
+/* Dark Mode Support Setup - Will mostly use theme JSON instead of media queries for full control */
+.dark-theme {
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #ffffff;
+  --text-muted: #adb5bd;
+  --border-color: #3f3f3f;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base button and card styles using variables */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}

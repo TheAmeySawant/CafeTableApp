@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#31302c",
+              "on-secondary-fixed-variant": "#57423b",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1c1c18",
+              "on-background": "#1c1c18",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "primary-container": "#a96413",
+              "inverse-on-surface": "#f4f0e9",
+              "surface-dim": "#dddad3",
+              "primary-fixed": "#ffdcbf",
+              "surface-container": "#f1ede6",
+              "outline-variant": "#d8c3b2",
+              "surface-container-high": "#ebe8e1",
+              "secondary-fixed-dim": "#dec0b7",
+              "tertiary-fixed": "#b2ebff",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#2d1600",
+              "surface-tint": "#8c4f00",
+              "on-primary-fixed-variant": "#6b3b00",
+              "secondary-container": "#f8d9d0",
+              "surface-container-highest": "#e6e2db",
+              "on-tertiary-fixed-variant": "#004e5e",
+              "on-surface-variant": "#534437",
+              "on-secondary-fixed": "#281812",
+              "on-secondary-container": "#755d56",
+              "primary-fixed-dim": "#ffb874",
+              "on-tertiary-container": "#fafdff",
+              "inverse-primary": "#ffb874",
+              "outline": "#857466",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#e6e2db",
+              "surface": "#fdf9f2",
+              "surface-bright": "#fdf9f2",
+              "secondary-fixed": "#fbdcd3",
+              "on-tertiary-fixed": "#001f27",
+              "on-error-container": "#93000a",
+              "tertiary": "#006579",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#007f99",
+              "background": "#fdf9f2",
+              "on-error": "#ffffff",
+              "secondary": "#705952",
+              "tertiary-fixed-dim": "#65d5f4",
+              "surface-container-low": "#f7f3ec",
+              "primary": "#894d00",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-[#1c1c18] flex justify-between items-center px-6 py-4 w-full"><h1 class="w-full text-center font-serif uppercase tracking-[0.2em] text-sm text-[#1c1c18] dark:text-[#fdf9f2]">The Roasted Bean</h1></header>
+<div class="fixed top-[64px] w-full z-40 bg-[#f7f3ec] dark:bg-[#2a2a24] h-[1px]"></div>
+<main class="pt-24 pb-32 px-4 max-w-screen-xl mx-auto">
+<!-- Hero Section / Context -->
+<section class="mb-10">
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-primary mb-2 font-bold">Artisan Selection</p>
+<h2 class="font-headline text-4xl leading-tight text-on-surface mb-4">Curated Brews for the <span class="italic">Connoisseur</span></h2>
+<div class="h-1 w-12 bg-primary rounded-full"></div>
+</section>
+<!-- Horizontally Scrollable Categories -->
+<nav class="sticky top-[65px] z-30 bg-surface/95 backdrop-blur-md -mx-4 px-4 py-4 mb-8 overflow-x-auto hide-scrollbar flex space-x-6">
+<button class="flex-shrink-0 font-label text-sm font-semibold text-primary border-b-2 border-primary pb-1">Hot Beverages</button>
+<button class="flex-shrink-0 font-label text-sm font-medium text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">Cold Brews</button>
+<button class="flex-shrink-0 font-label text-sm font-medium text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">Espresso Bar</button>
+<button class="flex-shrink-0 font-label text-sm font-medium text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">House Specials</button>
+<button class="flex-shrink-0 font-label text-sm font-medium text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity">Small Bites</button>
+</nav>
+<!-- 2-Column Grid -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-10">
+<!-- Card 1 -->
+<div class="group">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-surface-container shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+<img alt="Classic Cappuccino" class="w-full h-full object-cover" data-alt="Close-up of a perfectly poured cappuccino with elaborate latte art in a ceramic cup, soft morning light, café background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOh6lFIqveRRYNRoc4B6t2Xu_FDDRhUXI14rMyIAPQ_uWgOS4x2nFz5NMrFaXv0EDOcm1cxGbOkFnD3mh131x3brkjrbd90RysSoY5mC43xrlPhKZB-kd36RpS7MgW7Whzv1dXocRC8kecW2yDczyA-txcx30ByfFmKYYDUlgD1MnndI31rFbvykUf-jWtyJmb0WQVoc59FEG_5wnRRhLwh9846a36R1kfoM06JwOoPB6Mf3wOyVB3nyCou1tFC0TXSVdzU0LhK3Q"/>
+<button class="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<h3 class="font-headline text-lg mb-1 group-hover:text-primary transition-colors">Classic Cappuccino</h3>
+<p class="font-body text-xs text-on-surface-variant mb-2 line-clamp-2 leading-relaxed">Double shot espresso with velvety steamed milk foam.</p>
+<p class="font-label font-bold text-on-surface">₹240</p>
+</div>
+<!-- Card 2 -->
+<div class="group">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-surface-container shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+<img alt="Madagascar Vanilla Latte" class="w-full h-full object-cover" data-alt="A tall glass of layered caffe latte with vanilla bean specks visible, set on a rustic wooden table with soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5yoecCiZ4bOaEzyWQjJj9rALNDitUt0P4Rt4KYIMTaStyK-RK707iZXIaPe13wMOMuNsbnKLddwFiQ6F_FVybs9jX9XelgRoygaNgyfW-t5E5o15VngACBnyBQ8VG_cBDWh2frwd5zk81Xx2Z5ylfEivk7msvBgIo4bMKtNpXtwzldzbCdF0JjBc6JPDG7OrEELDfK7ii2BYvLSACnmTfaai7EaB-Q_ZNURH3Q1qfezC15MtKyo1uAmH9Oou-1yMgNBJhczJ7-S8"/>
+<button class="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<h3 class="font-headline text-lg mb-1 group-hover:text-primary transition-colors">Vanilla Latte</h3>
+<p class="font-body text-xs text-on-surface-variant mb-2 line-clamp-2 leading-relaxed">Infused with organic Madagascar vanilla beans.</p>
+<p class="font-label font-bold text-on-surface">₹280</p>
+</div>
+<!-- Card 3 -->
+<div class="group">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-surface-container shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+<img alt="Cortado" class="w-full h-full object-cover" data-alt="A small glass of cortado coffee with a rich crema and heart latte art, dark moody café lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAyFe7sYeM6x3w9vAhdC4xNf7crOt-J78-BLjFRAUFD02UyqALqm6EEAFzQo1bNOUXGCJcLiwDlsVwEL95iRCpcDcmSYg0gWYCyU_7AYKHvzFopVcMOiTihbhPTzHHJ3kSgCWUOTAwgtjQdaD0RvAFzqUPoVZKSUSQTrqPM_0zR19x503rWw_ShLUQt9VmMwXs55NdeV9xYcjQf9Fou7W8zT6KWuByUMQj0iMs0Xx-mBR7C5hGVKcj0RC6PQMdrrRdluklffDXRcU"/>
+<button class="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<h3 class="font-headline text-lg mb-1 group-hover:text-primary transition-colors">Cortado</h3>
+<p class="font-body text-xs text-on-surface-variant mb-2 line-clamp-2 leading-relaxed">Equal parts espresso and warm milk for a bold finish.</p>
+<p class="font-label font-bold text-on-surface">₹210</p>
+</div>
+<!-- Card 4 -->
+<div class="group">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-surface-container shadow-sm transition-transform duration-500 group-hover:scale-[1.02]">
+<img alt="Mocha Royale" class="w-full h-full object-cover" data-alt="Rich chocolate mocha with whipped cream and cocoa dusting on top, golden lighting, elegant presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT80yQFuTNwf16AGdvP9zuoDVIACA2cX_avEGziQo4NnSoSzw02V0Kv-TxVIwkY3DLuVSj9WmCJcv9Z4oupAlKQAg2spWCnNGjZbUIHBfzvN1xPTsf_KS45B0NXavrMOfRqK7CQBZ1lQQXCdS_bAukLHnyoYWGjLM3rSXCF6nRnfoApYwPyWB2rRvLJMUtZ7JdcjgRpnWxpkVJmJEpUgF1cPgT0Rjl-Zc-5m_GqWjoo4rOoFdd97qsuRkpMQfO7DOGm5wKQCvJB-A"/>
+<button class="absolute bottom-3 right-3 bg-primary text-white p-2 rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<h3 class="font-headline text-lg mb-1 group-hover:text-primary transition-colors">Mocha Royale</h3>
+<p class="font-body text-xs text-on-surface-variant mb-2 line-clamp-2 leading-relaxed">Single-origin dark chocolate blended with espresso.</p>
+<p class="font-label font-bold text-on-surface">₹320</p>
+</div>
+<!-- Card 5 (Special highlight styling) -->
+<div class="col-span-2 group mt-4">
+<div class="relative h-48 rounded-xl overflow-hidden mb-4 bg-surface-container shadow-sm transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="House Roast Flight" class="w-full h-full object-cover" data-alt="A trio of different coffee roasts in glass tasters on a professional cupping tray, industrial chic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAmpzGZpt3gQVa1hxKJhxCJfnuauuJlzJgT-jxjwo45zzybZbivVdgey4StWaOSE_gecAHTQGTuR1qO9TAGDQDCyMlS0J33HLRYweNyb57WjmqGZar-fDmcOW5pxGRlFMXdmj4LLBlPwBj4bSCJKnfVvJiHuAxnxkMRG_gbKwI1uNS_qvmd0nfd26kY0HzYWTz-x0gYfv0N_h1S1RDoMSV1p-zJaJijKa3-lFdDld7ONqhF_DKXes8AdaDiQt38alyg7m_7WnAgLQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6">
+<span class="bg-primary text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded-full mb-2 inline-block">Staff Pick</span>
+<h3 class="font-headline text-2xl text-white">Artisan Tasting Flight</h3>
+</div>
+<button class="absolute bottom-4 right-6 bg-white text-primary px-4 py-2 rounded-full font-bold text-sm shadow-lg active:scale-95 transition-transform">
+                        ₹450
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating View Cart Button -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md">
+<button class="w-full bg-primary text-white py-4 px-6 rounded-full flex items-center justify-between shadow-[0_15px_35px_rgba(137,77,0,0.3)] active:scale-98 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label font-bold tracking-wide text-sm">View Cart · 2 Items</span>
+</div>
+<span class="font-label font-bold text-sm">₹300</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-between items-end px-4 pb-6 pt-3 bg-[#fdf9f2]/90 dark:bg-[#1c1c18]/90 backdrop-blur-md z-50 rounded-t-[2rem] shadow-[0_-10px_30px_rgba(28,28,24,0.08)] border-t border-surface-container-high">
+<div class="flex-1 flex flex-col items-center justify-center text-[#894d00] dark:text-[#ffb874] transition-opacity">
+<span class="material-symbols-outlined" data-icon="local_cafe" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-bold mt-1">Explore</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Orders</span>
+</div>
+<!-- Prominent Scan Button -->
+<div class="flex-1 flex flex-col items-center justify-center relative -top-6">
+<div class="w-16 h-16 bg-[#894d00]/20 text-[#894d00] dark:text-[#ffb874] rounded-full flex items-center justify-center border-4 border-[#fdf9f2] dark:border-[#1c1c18] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<span class="font-sans text-[10px] uppercase tracking-[0.15em] font-bold text-[#894d00] opacity-60 mt-2">Scan</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Cart</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

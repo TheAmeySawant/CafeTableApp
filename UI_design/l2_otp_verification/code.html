@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Roasted Bean - Verify Identity</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed-dim": "#65d5f4",
+            "on-tertiary-fixed-variant": "#004e5e",
+            "on-surface": "#1c1c18",
+            "surface-container": "#f1ede6",
+            "surface-container-highest": "#e6e2db",
+            "surface-bright": "#fdf9f2",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "outline-variant": "#d8c3b2",
+            "on-secondary": "#ffffff",
+            "tertiary": "#006579",
+            "on-primary-fixed-variant": "#6b3b00",
+            "tertiary-fixed": "#b2ebff",
+            "inverse-on-surface": "#f4f0e9",
+            "outline": "#857466",
+            "on-secondary-fixed-variant": "#57423b",
+            "surface": "#fdf9f2",
+            "primary": "#894d00",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#2d1600",
+            "inverse-primary": "#ffb874",
+            "secondary": "#705952",
+            "surface-container-low": "#f7f3ec",
+            "surface-variant": "#e6e2db",
+            "surface-tint": "#8c4f00",
+            "surface-dim": "#dddad3",
+            "surface-container-high": "#ebe8e1",
+            "primary-fixed-dim": "#ffb874",
+            "on-primary-container": "#fffbff",
+            "background": "#fdf9f2",
+            "on-secondary-container": "#755d56",
+            "secondary-container": "#f8d9d0",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#281812",
+            "inverse-surface": "#31302c",
+            "on-tertiary-fixed": "#001f27",
+            "secondary-fixed": "#fbdcd3",
+            "on-error": "#ffffff",
+            "primary-container": "#a96413",
+            "on-surface-variant": "#534437",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#dec0b7",
+            "tertiary-container": "#007f99",
+            "on-tertiary-container": "#fafdff",
+            "on-background": "#1c1c18",
+            "primary-fixed": "#ffdcbf"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif", "serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .otp-input:focus {
+      outline: none;
+      border-bottom: 2px solid #894d00;
+    }
+    .editorial-shadow {
+      box-shadow: 0 20px 40px rgba(28, 28, 24, 0.06);
+    }
+    .glass-overlay {
+      background: rgba(253, 249, 242, 0.8);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen">
+<!-- Top Navigation Shell (SUPPRESSED NAV, BACK ONLY) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-[#1c1c18] flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center space-x-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[#894d00] dark:text-[#c47a2a]" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+<div class="font-serif font-bold text-2xl tracking-tight text-[#894d00] dark:text-[#c47a2a]">The Roasted Bean</div>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</nav>
+<main class="pt-24 pb-12 px-6 max-w-lg mx-auto">
+<!-- Editorial Hero Section -->
+<section class="mt-8 mb-12 text-center">
+<div class="mb-8 relative inline-block">
+<div class="w-24 h-24 bg-surface-container-high rounded-full flex items-center justify-center mx-auto editorial-shadow overflow-hidden">
+<img alt="A perfect latte art heart on a ceramic cup" class="w-full h-full object-cover opacity-80" data-alt="close-up of a perfectly crafted latte art heart in a white ceramic cup with steam rising in a warm cafe atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_xfFklpQK6JknWvctzPkBUYikr-M4u2kWwITPsW2u1L-zHxWhH5wFPKpfs19JxM3PMGd2I2h0xT28oedK55Gp3ddEHhrUumq15lHST5Dvpmtly2HY6LxNMz4LJIZ5d_KMjc2iNlEIh9UDSMBnCSpbo_jA8b2fBRReXVvAGyVtfWbMxKwmww6NpKZMnfXcOhfXwfHuDftBeKZlbYwe8kDOoFsqy4wvH_xitSfQ-9jO-_83YxXe_V3O56uu_RPNsZCfbtv7D4d0aVQ"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary rounded-full p-2 text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h1 class="font-headline font-bold text-4xl text-on-surface mb-4 tracking-tight leading-tight">Verify Your Identity</h1>
+<p class="font-body text-on-surface-variant text-base leading-relaxed px-4">
+        We've sent a 6-digit code to <span class="font-semibold text-on-surface">+91 •••• •••• 88</span>
+</p>
+</section>
+<!-- OTP Input Section -->
+<section class="mb-12">
+<div class="flex justify-between gap-3 mb-10">
+<input autofocus="" class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+<input class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+<input class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+<input class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+<input class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+<input class="otp-input w-full aspect-square text-center text-2xl font-headline font-bold bg-surface-container-low border-b-2 border-outline-variant/30 rounded-t-lg focus:bg-surface-container-highest transition-all duration-200" maxlength="1" type="text" value=""/>
+</div>
+<!-- Actions -->
+<div class="space-y-6">
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-label font-semibold text-lg hover:opacity-90 active:scale-95 transition-all duration-300 editorial-shadow">
+          Verify &amp; Continue
+        </button>
+<div class="text-center">
+<p class="font-body text-on-surface-variant text-sm mb-2">Didn't receive the code?</p>
+<button class="text-primary font-label font-bold text-sm tracking-widest uppercase hover:underline">
+            Resend Code (45s)
+          </button>
+</div>
+</div>
+</section>
+<!-- Contextual "Brewing" Note (Design System Element) -->
+<section class="mt-16 bg-surface-container-high/50 p-6 rounded-lg border border-outline-variant/10">
+<div class="flex items-start gap-4">
+<div class="bg-tertiary/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-tertiary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface mb-1 text-lg">Secure Verification</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+            Your security is our top priority. The Roasted Bean uses encrypted verification to ensure your rewards and profile stay safe.
+          </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Decorative Element: Asymmetric Bean Flow -->
+<div class="fixed bottom-0 left-0 w-full h-32 pointer-events-none overflow-hidden opacity-10">
+<div class="absolute -bottom-8 -left-8 w-48 h-48 bg-primary rounded-full blur-3xl"></div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container rounded-full blur-3xl"></div>
+</div>
+<!-- Bottom Navigation Shell (SUPPRESSED per request for focused journey) -->
+<!-- No BottomNavBar rendered as this is a focused transactional screen -->
+</body></html>

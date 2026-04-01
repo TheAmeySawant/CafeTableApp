@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu Management | The Roasted Bean</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dddad3",
+                        "on-background": "#1c1c18",
+                        "primary": "#894d00",
+                        "inverse-on-surface": "#f4f0e9",
+                        "primary-fixed-dim": "#ffb874",
+                        "on-surface": "#1c1c18",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#8c4f00",
+                        "error": "#ba1a1a",
+                        "background": "#fdf9f2",
+                        "on-primary-fixed": "#2d1600",
+                        "outline": "#857466",
+                        "on-surface-variant": "#534437",
+                        "surface-container-low": "#f7f3ec",
+                        "surface-container-high": "#ebe8e1",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#755d56",
+                        "tertiary-container": "#007f99",
+                        "surface-container": "#f1ede6",
+                        "tertiary-fixed": "#b2ebff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#fbdcd3",
+                        "on-secondary-fixed-variant": "#57423b",
+                        "on-tertiary-fixed-variant": "#004e5e",
+                        "tertiary-fixed-dim": "#65d5f4",
+                        "outline-variant": "#d8c3b2",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#dec0b7",
+                        "secondary-container": "#f8d9d0",
+                        "secondary": "#705952",
+                        "primary-container": "#a96413",
+                        "on-tertiary-fixed": "#001f27",
+                        "surface-container-highest": "#e6e2db",
+                        "primary-fixed": "#ffdcbf",
+                        "tertiary": "#006579",
+                        "on-primary-fixed-variant": "#6b3b00",
+                        "inverse-primary": "#ffb874",
+                        "on-secondary-fixed": "#281812",
+                        "surface-variant": "#e6e2db",
+                        "on-tertiary-container": "#fafdff",
+                        "surface": "#fdf9f2",
+                        "on-primary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fdf9f2",
+                        "inverse-surface": "#31302c"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .glass-panel {
+            background: rgba(230, 226, 219, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar -->
+<aside class="bg-[#fdf9f2] dark:bg-[#1c1c18] h-screen w-64 fixed left-0 top-0 flex flex-col py-8 space-y-4 shadow-[0_20px_40px_rgba(28,28,24,0.06)] z-50">
+<div class="px-6 mb-8">
+<h1 class="text-2xl font-bold italic text-[#894d00] dark:text-[#C47A2A] font-serif">The Roasted Bean</h1>
+<p class="text-xs font-medium opacity-60 uppercase tracking-widest mt-1">Artisan Roast Admin</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<!-- Menu Management (Active) -->
+<a class="bg-[#894d00] text-white rounded-full font-bold px-4 py-3 mx-2 my-1 flex items-center gap-3 scale-95 transition-transform duration-150 shadow-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span>Menu</span>
+</a>
+<!-- Order History -->
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">receipt_long</span>
+<span class="font-medium">Orders</span>
+</a>
+<!-- Table & QR -->
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">table_bar</span>
+<span class="font-medium">Tables</span>
+</a>
+<!-- Analytics -->
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">analytics</span>
+<span class="font-medium">Analytics</span>
+</a>
+<!-- Settings -->
+<a class="text-[#1c1c18] dark:text-[#fdf9f2] px-4 py-3 mx-2 my-1 flex items-center gap-3 hover:bg-[#f7f3ec] dark:hover:bg-[#3d3d37] transition-colors group" href="#">
+<span class="material-symbols-outlined opacity-70 group-hover:opacity-100">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-6 pt-6 border-t border-[#1c1c18]/5">
+<div class="flex items-center gap-3">
+<img alt="Admin Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5P0O_4IiU8nqB_quah3az9n8ewGHlG46QjrbtgeWX1MboZmsrxFuzg1u8Qxar941Jw2GaAH3epwQzsZ9Zr-lX0PR2CFewJCRn0rR2PPhQYhqiTKty3e7fqkWRpi2m_Yjpfrs-VpQbDOk9-q1gXfrJAcPHR60LKMNoQyq119MWbkIuCzRqqc3vvOcOAlVPr11Sp6uV_fRT1DnoYMScxMIYYY7KeAOoeTj8tyoZFVOIN4LM6Y8TY35UxH7lsgpC0NZWxujEmmoyE0c"/>
+<div>
+<p class="text-sm font-bold">Admin Profile</p>
+<p class="text-[10px] text-on-surface/60">Admin Access</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-12">
+<!-- Header Section -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<span class="text-primary font-label uppercase tracking-[0.2em] text-xs font-bold mb-2 block">Curation Hub</span>
+<h2 class="text-5xl font-serif font-bold text-on-surface leading-none">Menu Management</h2>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container rounded-full px-6 py-3 flex items-center gap-3 focus-within:ring-2 ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-medium w-64 placeholder:text-outline/60" placeholder="Search beverages or snacks..." type="text"/>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 rounded-full font-medium hover:bg-surface-dim transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">tune</span>
+                Advanced Filters
+            </button>
+</div>
+</header>
+<!-- Category Horizontal Scroll -->
+<section class="mb-10 overflow-x-auto hide-scrollbar flex gap-3 pb-4">
+<button class="px-8 py-3 bg-primary text-on-primary rounded-full whitespace-nowrap font-medium text-sm">All Items</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full whitespace-nowrap font-medium text-sm transition-colors">Hot Beverages</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full whitespace-nowrap font-medium text-sm transition-colors">Cold Brews</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full whitespace-nowrap font-medium text-sm transition-colors">Artisan Pastries</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full whitespace-nowrap font-medium text-sm transition-colors">Seasonal Specials</button>
+<button class="px-8 py-3 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full whitespace-nowrap font-medium text-sm transition-colors">Merchandise</button>
+</section>
+<!-- Menu Table / Content -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(28,28,24,0.04)]">
+<table class="w-full text-left border-separate border-spacing-0">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-8 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container">Item Details</th>
+<th class="px-6 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container">Category</th>
+<th class="px-6 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container">Price</th>
+<th class="px-6 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container">Dietary</th>
+<th class="px-6 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container">Availability</th>
+<th class="px-8 py-5 font-serif font-bold text-sm text-outline border-b border-surface-container text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Cappuccino" class="w-16 h-16 rounded-lg object-cover" data-alt="Overhead shot of a creamy cappuccino with intricate leaf latte art in a ceramic cup on a wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5dtbptsFRWWtGRyedNxs-V8WeXt7OCfOg8joOpKOIEcLCdMH1Aou-JvGu8SFqsnCQNM_HkOG3vbf7iLhgleQoPMe9YcQW-OVOOkwiDoG3VJVpV3tdBo2COavDBt1B3sA6ERqeO5rSH0Tuai5qZdz4rU8KU9HDXB02bTSbVBZgaYSm_8ppuu57mGSxFVQOzF29VMazOKV-fqT38wCY28a9hAmn_Kqn-W8UkxbedxdsS9v26TRiDtBM5Hjn8LtIMPvR9FPRcDEjPJI"/>
+<span class="absolute -top-2 -left-2 bg-tertiary text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">Bestseller</span>
+</div>
+<div>
+<h4 class="font-serif font-bold text-lg text-on-surface">Signature Cappuccino</h4>
+<p class="text-xs text-on-surface-variant opacity-70">Double shot espresso, steamed milk, micro-foam.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full">Hot Beverages</span>
+</td>
+<td class="px-6 py-6">
+<span class="font-serif font-bold text-primary">$5.50</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-green-700 text-sm" title="Veg">eco</span>
+<span class="material-symbols-outlined text-blue-600 text-sm" title="Soy Available">water_drop</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error-container text-error rounded-full transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<img alt="Nitro Cold Brew" class="w-16 h-16 rounded-lg object-cover" data-alt="Tall glass of nitro cold brew with cascading foam and bubbles, dark moody cafe lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXhx_jyeE9fpN26IMSaedZ7Kq1iyFFZcxhfREf0Zs27NUaBCZo2z2jqGfK1xhWI_8EmeSAN05dz15AcCRgLUSPXUhXVHYmknpm6lneJ-2GyCkoZA5wqpwj-E7kmv9pq87FyoeQSXXPFV0iLhIzSF3U7X38PGpoZX2DyjCjCyh9w_U1rkIVma7li5ljc_gNxzQvulYwWCfcqWA-yA7euA145l0XOn8-x3aHFNzFmZVxJVJqYIPIL6Syj0EGIdA63nNirOFQnbyK8Hw"/>
+<div>
+<h4 class="font-serif font-bold text-lg text-on-surface">Nitro Honey Cold Brew</h4>
+<p class="text-xs text-on-surface-variant opacity-70">12-hour steep with wildflower honey infusion.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full">Cold Brews</span>
+</td>
+<td class="px-6 py-6">
+<span class="font-serif font-bold text-primary">$6.75</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-green-700 text-sm" title="Vegan">psychiatry</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error-container text-error rounded-full transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Inactive State) -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors opacity-60 grayscale-[0.5]">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<img alt="Chili Infused Mocha" class="w-16 h-16 rounded-lg object-cover" data-alt="Rich chocolate mocha in a ceramic mug with a whole red chili garnish, rustic wood background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEAokksvV2zlr3VmpBEBSonG_TyL5yl95JGXKzIxvtoWnOSdzMzVdT54ec1pkYaU_m2bDg2Atz9IdYy2bZ1errsCcN0l226BUBm5mV0wUFPJwwXaUo72e3by7kPsIQRPDvm92VyrnLJB0AZhaZ7yBw-3wsNrlSOieXC1YLi9k-Pf1TkoLIxwJ1X_qmTiZXUGxdTb__GcQ-BYUSeOSxESHwmLznQZfMsUtZYV-bL4tGdu7lqdqQSLGs_1vKq99h3knIjMvOGJbxa-0"/>
+<div>
+<h4 class="font-serif font-bold text-lg text-on-surface">Spiced Aztec Mocha</h4>
+<p class="text-xs text-on-surface-variant opacity-70">Dark cocoa with cinnamon and cayenne heat.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full">Hot Beverages</span>
+</td>
+<td class="px-6 py-6">
+<span class="font-serif font-bold text-primary">$6.25</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-red-600 text-sm" title="Spicy">local_fire_department</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error-container text-error rounded-full transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<img alt="Almond Croissant" class="w-16 h-16 rounded-lg object-cover" data-alt="Flaky golden almond croissant topped with sliced almonds and powdered sugar on a marble plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA16ftnVEpnp9AwM4hDArxns1KiJcAB9bB0LO78MocWivctvJEq8G_dqDRoxu6LBCRUFRpbvTiYPCXTrpv29zea2GM4LblS8ZmS934YckWq_lRo5a2RNQyh-gndGQCQmoJRqql0dP-12jC7Shrcxqqy2wbnOcit4v0SP9BnGOSxe3V9qKZQkBJ_60MGtrQ2Xnv8pLQF6xUlA_5VrqfASWPMZn4OMCGWJLF4Myu_YLvXGt94taKspADbFu--6XeZED5UoRfX7rT9Aq4"/>
+<div>
+<h4 class="font-serif font-bold text-lg text-on-surface">Artisan Almond Croissant</h4>
+<p class="text-xs text-on-surface-variant opacity-70">Twice-baked with house-made frangipane.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded-full">Artisan Pastries</span>
+</td>
+<td class="px-6 py-6">
+<span class="font-serif font-bold text-primary">$4.95</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-green-700 text-sm" title="Veg">eco</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+</td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container text-on-surface-variant rounded-full transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 hover:bg-error-container text-error rounded-full transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination / Footer of table -->
+<div class="px-8 py-6 flex items-center justify-between bg-surface-container-low border-t border-surface-container">
+<p class="text-xs font-medium text-outline">Showing 1 to 4 of 48 items</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors font-bold text-xs">2</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors font-bold text-xs">3</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Asymmetric Bento-style Quick Actions -->
+<section class="mt-16 grid grid-cols-12 gap-6">
+<div class="col-span-12 md:col-span-8 bg-surface-container-high rounded-xl p-8 flex justify-between items-center relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-serif font-bold text-3xl mb-4 leading-tight">Seasonal Coffee<br/>Update Required</h3>
+<p class="text-sm text-on-surface-variant max-w-sm mb-6">Our Autumn Roast stock is reaching end of life. Prepare the Winter menu cards and update pricing for the "Snowy Latte".</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                    Schedule Update
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-[-40px] top-[-20px] opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[240px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-tertiary-container text-on-tertiary-container rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4">analytics</span>
+<h3 class="font-serif font-bold text-2xl mb-2">Item Performance</h3>
+<p class="text-sm opacity-80">Track which brews are driving revenue this week.</p>
+</div>
+<div class="mt-8 flex items-baseline gap-2">
+<span class="text-4xl font-bold font-serif">+12%</span>
+<span class="text-xs uppercase tracking-widest font-bold">vs last week</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button - Only visible on specific admin contexts -->
+<div class="fixed bottom-8 right-8 flex flex-col items-end gap-4">
+<button class="bg-primary text-on-primary w-16 h-16 rounded-full shadow-[0_20px_40px_rgba(137,77,0,0.3)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-2xl group-hover:hidden">add</span>
+<span class="hidden group-hover:flex items-center gap-2 px-6 font-bold text-sm whitespace-nowrap">Add New Item</span>
+</button>
+</div>
+<!-- Status Glass Bar (Brewing Simulation) -->
+<div class="fixed top-6 right-8 glass-panel px-6 py-3 rounded-full flex items-center gap-4 z-[60] shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Live Inventory Sync</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">notifications_active</span>
+<span class="text-xs font-bold text-on-surface">2 Low Stock Alerts</span>
+</div>
+</div>
+</body></html>

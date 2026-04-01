@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#31302c",
+              "on-secondary-fixed-variant": "#57423b",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1c1c18",
+              "on-background": "#1c1c18",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "primary-container": "#a96413",
+              "inverse-on-surface": "#f4f0e9",
+              "surface-dim": "#dddad3",
+              "primary-fixed": "#ffdcbf",
+              "surface-container": "#f1ede6",
+              "outline-variant": "#d8c3b2",
+              "surface-container-high": "#ebe8e1",
+              "secondary-fixed-dim": "#dec0b7",
+              "tertiary-fixed": "#b2ebff",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#2d1600",
+              "surface-tint": "#8c4f00",
+              "on-primary-fixed-variant": "#6b3b00",
+              "secondary-container": "#f8d9d0",
+              "surface-container-highest": "#e6e2db",
+              "on-tertiary-fixed-variant": "#004e5e",
+              "on-surface-variant": "#534437",
+              "on-secondary-fixed": "#281812",
+              "on-secondary-container": "#755d56",
+              "primary-fixed-dim": "#ffb874",
+              "on-tertiary-container": "#fafdff",
+              "inverse-primary": "#ffb874",
+              "outline": "#857466",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#e6e2db",
+              "surface": "#fdf9f2",
+              "surface-bright": "#fdf9f2",
+              "secondary-fixed": "#fbdcd3",
+              "on-tertiary-fixed": "#001f27",
+              "on-error-container": "#93000a",
+              "tertiary": "#006579",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#007f99",
+              "background": "#fdf9f2",
+              "on-error": "#ffffff",
+              "secondary": "#705952",
+              "tertiary-fixed-dim": "#65d5f4",
+              "surface-container-low": "#f7f3ec",
+              "primary": "#894d00",
+              "on-primary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdf9f2;
+            color: #1c1c18;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(28, 28, 24, 0.06);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Simple Elegant Header -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-[#1c1c18] flex justify-center items-center px-6 py-4">
+<h1 class="font-headline text-lg tracking-[0.2em] text-[#1c1c18] dark:text-[#fdf9f2] uppercase">The Roasted Bean</h1>
+</nav>
+<div class="fixed top-[60px] w-full z-40 bg-[#f7f3ec] dark:bg-[#2a2a24] h-[1px]"></div>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12 text-center">
+<div class="inline-block px-4 py-1 mb-4 rounded-full bg-tertiary-container text-on-tertiary-container text-xs font-label font-bold tracking-widest uppercase">
+            Order #TRB-9921
+        </div>
+<h2 class="font-headline text-4xl lg:text-5xl text-on-surface mb-2">✅ Your order is ready!</h2>
+<p class="font-body text-on-surface-variant opacity-80">Head to the pickup counter to collect your brew.</p>
+</header>
+<!-- Live Status Stepper -->
+<section class="mb-16 relative">
+<div class="flex justify-between items-center relative z-10">
+<!-- Step 1: Placed -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label text-[10px] uppercase tracking-tighter font-bold text-on-surface">Placed</span>
+</div>
+<!-- Connector -->
+<div class="flex-1 h-[2px] mx-2 bg-primary self-start mt-5"></div>
+<!-- Step 2: Preparing -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label text-[10px] uppercase tracking-tighter font-bold text-on-surface">Preparing</span>
+</div>
+<!-- Connector -->
+<div class="flex-1 h-[2px] mx-2 bg-primary self-start mt-5"></div>
+<!-- Step 3: Ready -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-12 h-12 rounded-full border-4 border-primary bg-surface flex items-center justify-center text-primary ring-8 ring-primary/10">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+</div>
+<span class="font-label text-[10px] uppercase tracking-tighter font-extrabold text-primary">Ready</span>
+</div>
+<!-- Connector -->
+<div class="flex-1 h-[2px] mx-2 bg-surface-container-highest self-start mt-5"></div>
+<!-- Step 4: Served -->
+<div class="flex flex-col items-center gap-3 opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">celebration</span>
+</div>
+<span class="font-label text-[10px] uppercase tracking-tighter font-bold text-on-surface-variant">Served</span>
+</div>
+</div>
+</section>
+<!-- Order Visualization Hero -->
+<section class="mb-12 rounded-xl overflow-hidden relative h-64 editorial-shadow">
+<img alt="Coffee pickup area" class="w-full h-full object-cover" data-alt="Close-up of a steaming ceramic coffee cup on a minimalist wooden counter with soft natural light and blurred cafe background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaMn7Sepyr0CFdQivxXMaRLh9XRibsxYO_Wti3RblTqSZefC2HWf7aDpiW82uxjk69rtBs0yF4BfkuO4-nqrXuXpcbr7MkQvNAqmteXVOxt3c4I8sMXXTGyRGlLi5ZBTT66yVjAwzGrt7NDK9erzkk8FNqZYYaQc-AzyP6u-LwzSkhbazcwRaBadGiRCWdQ-gE0BgbFHo4GmTDPp7_-iLIxJqucnIrAs7KGi40_CiCYfDHl2GsqsnD0SNOwQZzN4VozHpkVgEW-Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex flex-col justify-end p-8">
+<span class="text-white/80 font-label text-xs uppercase tracking-[0.2em] mb-1">Pick up at</span>
+<span class="text-white font-headline text-2xl">Main Bar • Station 02</span>
+</div>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-low rounded-lg p-8">
+<h3 class="font-headline text-2xl mb-8">Order Summary</h3>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Oat Milk Latte" class="w-full h-full object-cover" data-alt="Artistic overhead shot of a latte with detailed tulip latte art in a ceramic cup on a neutral surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCScDIK4fu7JqvndG3LRyoIC9OWrRmLdjJpAq53QbkuDM9YH8eapmtvjh4F-Daey8IIN31CI6UTPCgufyuIwurG3sT7govhyhfOrKgkAcMjQ74q6qYRWc4IPIbDGjCfNRLn8vG4ssi0e5hW6_j_HKACIz_OSiUmUGygqN2NOMnfg5b_XB1Jthl7z0TKCORC5ryKofeAWd7jv3mwJUe-M1W0K6nhyYBS_ijWlDbAmhTLMuwOf1kx6a91-qPi5V2sAULHrnSuJEjBFqk"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline text-lg">Velvet Oat Latte</h4>
+<span class="font-body font-semibold text-on-surface">₹6.50</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant">Regular • Ethiopian Roast • Extra Hot</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Almond Croissant" class="w-full h-full object-cover" data-alt="Golden flaky almond croissant dusted with powdered sugar on a vintage stoneware plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjMIIwWn7m0qymvMGbBTSdXG3OU1Sw26YMgBSJOcW7CUpRf1NZojqpDThTGthnp_prq8hJvolPNax2OdD5SEth9fR_3jPt4GrrhqLjz72Hdxv4LkNh0bu-F6jLdn151mSP28CVVBtfNLOmuyERx3boCftGJJA_stg0N8cTf-CWpVlmnJRlI7C6xaKWciAYK7Us52NqOWpHAw4C_q00M_QdoKZZ6Uynt7OIppw_qnRTe36YJ4uYCHmo7ENAFBQg70zrNmO8KN0Bkwc"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline text-lg">Almond Croissant</h4>
+<span class="font-body font-semibold text-on-surface">₹5.25</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant">Warmed • House-made Frangipane</p>
+</div>
+</div>
+</div>
+<!-- Totals -->
+<div class="mt-10 pt-8 border-t border-outline-variant/20 space-y-3">
+<div class="flex justify-between text-on-surface-variant font-body">
+<span>Subtotal</span>
+<span>₹12.69</span>
+</div>
+<div class="flex justify-between text-on-surface-variant font-body">
+<span>Taxes</span>
+<span>₹12.69</span>
+</div>
+<div class="flex justify-between text-on-surface font-body font-bold text-xl pt-2">
+<span>Total</span>
+<span>₹12.69</span>
+</div>
+</div>
+</section>
+<!-- Help / Support -->
+<div class="mt-8 mb-16 flex justify-center">
+<button class="bg-surface-container-high text-primary px-8 py-3 rounded-full font-label text-sm uppercase tracking-widest font-bold transition-all duration-300 hover:bg-surface-container-highest active:scale-95">
+            Need Help?
+        </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-between items-end px-4 pb-6 pt-3 bg-[#fdf9f2]/90 dark:bg-[#1c1c18]/90 backdrop-blur-md z-50 rounded-t-[2rem] shadow-[0_-10px_30px_rgba(28,28,24,0.08)] border-t border-surface-container-high">
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="local_cafe">local_cafe</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Explore</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#894d00] dark:text-[#ffb874] transition-opacity">
+<span class="material-symbols-outlined" data-icon="receipt_long" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-bold mt-1">Orders</span>
+</div>
+<!-- Prominent Scan Button -->
+<div class="flex-1 flex flex-col items-center justify-center relative -top-6">
+<div class="w-16 h-16 bg-[#894d00]/20 text-[#894d00] dark:text-[#ffb874] rounded-full flex items-center justify-center border-4 border-[#fdf9f2] dark:border-[#1c1c18] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<span class="font-sans text-[10px] uppercase tracking-[0.15em] font-bold text-[#894d00] opacity-60 mt-2">Scan</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Cart</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-[#1c1c18] dark:text-[#fdf9f2] opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans text-[9px] uppercase tracking-widest font-medium mt-1">Profile</span>
+</div>
+</nav>
+</body></html>
