@@ -1,0 +1,17 @@
+{
+  "name": "The Roasted Bean - Artisan Roast",
+  "short_name": "Roasted Bean",
+  "description": "Multi-tenant Café QR Ordering PWA",
+  "start_url": "/menu",
+  "display": "standalone",
+  "background_color": "#fdf9f2",
+  "theme_color": "#894d00",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
