@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 type PastOrder = {
   id: string;
@@ -68,7 +69,35 @@ const MOCK_ORDERS: PastOrder[] = [
 ];
 
 export default function OrderHistoryPage() {
-  const [orders] = useState<PastOrder[]>(MOCK_ORDERS);
+  const [orders, setOrders] = useState<PastOrder[]>(MOCK_ORDERS);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/orders')
+      .then(res => res.json())
+      .then(data => {
+        if (data.orders) {
+          const fetchedOrders = data.orders.map((o: any) => ({
+            id: o.id.slice(0, 8).toUpperCase(),
+            table: o.tableNumber ? `Table ${o.tableNumber}` : "Takeaway",
+            notes: o.notes || "—",
+            itemsSummary: "See order details...",
+            itemCount: o.items ? o.items.length : 1,
+            total: Number(o.totalAmount),
+            status: o.status,
+            time: new Date(o.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }));
+          setOrders(fetchedOrders.length > 0 ? fetchedOrders : MOCK_ORDERS);
+        } else {
+          setOrders(MOCK_ORDERS);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setOrders(MOCK_ORDERS);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <div className="bg-[#fdf9f2] text-[#1c1c18] min-h-screen font-body flex">
@@ -162,29 +191,48 @@ export default function OrderHistoryPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#f1ede6]">
-                {orders.map(order => (
-                  <tr key={order.id} className="hover:bg-[#f7f3ec]/50 transition-colors group cursor-pointer">
-                    <td className="px-8 py-5 text-sm font-bold text-[#894d00]">{order.id}</td>
-                    <td className="px-6 py-5 text-sm font-medium text-[#1c1c18]">{order.table}</td>
-                    <td className="px-6 py-5 text-xs text-[#534437] italic max-w-xs truncate">{`"${order.notes}"`}</td>
-                    <td className="px-6 py-5">
-                      <div className="flex flex-col">
-                        <span className="text-sm font-medium text-[#1c1c18]">{order.itemsSummary}</span>
-                        <span className="text-[10px] text-[#534437]">{order.itemCount} items total</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-5 text-sm font-bold text-[#1c1c18]">${order.total.toFixed(2)}</td>
-                    <td className="px-6 py-5 text-center">
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase
-                        ${order.status === 'served' ? 'bg-green-100 text-green-800' : 
-                          order.status === 'ready' ? 'bg-[#ffdcbf] text-[#6b3b00]' : 
-                          'bg-[#b2ebff] text-[#004e5e]'}`}>
-                        {order.status}
-                      </span>
-                    </td>
-                    <td className="px-8 py-5 text-sm text-[#534437] text-right font-medium">{order.time}</td>
-                  </tr>
-                ))}
+                {isLoading ? (
+                  Array.from({ length: 5 }).map((_, i) => (
+                    <tr key={`skel-${i}`} className="hover:bg-[#f7f3ec]/50 transition-colors group">
+                      <td className="px-8 py-5"><Skeleton height="20px" width="80px" /></td>
+                      <td className="px-6 py-5"><Skeleton height="20px" width="60px" /></td>
+                      <td className="px-6 py-5"><Skeleton height="20px" width="100px" /></td>
+                      <td className="px-6 py-5">
+                        <div className="flex flex-col gap-2">
+                          <Skeleton height="16px" width="120px" />
+                          <Skeleton height="12px" width="60px" />
+                        </div>
+                      </td>
+                      <td className="px-6 py-5"><Skeleton height="20px" width="40px" /></td>
+                      <td className="px-6 py-5 text-center"><Skeleton height="24px" width="70px" className="rounded-full mx-auto" /></td>
+                      <td className="px-8 py-5 text-right"><Skeleton height="20px" width="60px" className="ml-auto" /></td>
+                    </tr>
+                  ))
+                ) : (
+                  orders.map(order => (
+                    <tr key={order.id} className="hover:bg-[#f7f3ec]/50 transition-colors group cursor-pointer">
+                      <td className="px-8 py-5 text-sm font-bold text-[#894d00]">{order.id}</td>
+                      <td className="px-6 py-5 text-sm font-medium text-[#1c1c18]">{order.table}</td>
+                      <td className="px-6 py-5 text-xs text-[#534437] italic max-w-xs truncate">{`"${order.notes}"`}</td>
+                      <td className="px-6 py-5">
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-[#1c1c18]">{order.itemsSummary}</span>
+                          <span className="text-[10px] text-[#534437]">{order.itemCount} items total</span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-5 text-sm font-bold text-[#1c1c18]">${order.total.toFixed(2)}</td>
+                      <td className="px-6 py-5 text-center">
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase
+                          ${order.status === 'served' ? 'bg-green-100 text-green-800' : 
+                            order.status === 'ready' ? 'bg-[#ffdcbf] text-[#6b3b00]' : 
+                            'bg-[#b2ebff] text-[#004e5e]'}`}>
+                          {order.status}
+                        </span>
+                      </td>
+                      <td className="px-8 py-5 text-sm text-[#534437] text-right font-medium">{order.time}</td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

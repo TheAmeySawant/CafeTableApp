@@ -5,11 +5,11 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Dashboard", href: "/kitchen", icon: "dashboard", activePaths: ["/kitchen"] },
+    { label: "Dashboard", href: "/admin/analytics", icon: "dashboard", activePaths: ["/admin/analytics"] },
     { label: "Menu Management", href: "/admin/menu", icon: "menu_book", activePaths: ["/admin/menu"] },
     { label: "Order History", href: "/admin/orders", icon: "receipt_long", activePaths: ["/admin/orders"] },
     { label: "Table & QR", href: "/admin/tables", icon: "qr_code_2", activePaths: ["/admin/tables"] },
-    { label: "Analytics", href: "/admin/analytics", icon: "analytics", activePaths: ["/admin/analytics"] },
+    { label: "Kitchen Display", href: "/kitchen", icon: "soup_kitchen", activePaths: ["/kitchen"] },
     { label: "Settings", href: "/admin/settings", icon: "settings", activePaths: ["/admin/settings"] },
   ];
 

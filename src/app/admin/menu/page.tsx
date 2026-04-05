@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 type MenuItem = {
   id: string;
@@ -61,7 +62,28 @@ const MOCK_MENU: MenuItem[] = [
 
 export default function MenuManagementPage() {
   const [items, setItems] = useState<MenuItem[]>(MOCK_MENU);
+  const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("All Items");
+
+  useEffect(() => {
+    fetch('/api/menu')
+      .then(res => res.json())
+      .then(data => {
+        if (data.categories) {
+          let allItems: any[] = [];
+          data.categories.forEach((cat: any) => {
+            if (cat.items) {
+               allItems = [...allItems, ...cat.items.map((i: any) => ({ ...i, category: cat.name }))];
+            }
+          });
+          setItems(allItems.length > 0 ? allItems : MOCK_MENU);
+        } else {
+          setItems(MOCK_MENU);
+        }
+      })
+      .catch(() => setItems(MOCK_MENU))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   const toggleAvailability = (id: string) => {
     setItems(prev => prev.map(item => item.id === id ? { ...item, available: !item.available } : item));
@@ -128,53 +150,79 @@ export default function MenuManagementPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-[#f1ede6]">
-              {getFilteredItems().map(item => (
-                <tr key={item.id} className={`group hover:bg-[#f7f3ec]/50 transition-colors ${!item.available ? "opacity-60 grayscale-[0.5]" : ""}`}>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-4">
-                      <div className="relative">
-                        <img alt={item.name} className="w-16 h-16 rounded-lg object-cover shadow-sm" src={item.image} />
-                        {item.isBestseller && (
-                          <span className="absolute -top-2 -left-2 bg-[#006579] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                            Bestseller
+              {isLoading ? (
+                Array.from({ length: 4 }).map((_, i) => (
+                  <tr key={`skel-${i}`} className="group hover:bg-[#f7f3ec]/50 transition-colors">
+                    <td className="px-8 py-6">
+                      <div className="flex items-center gap-4">
+                        <Skeleton height="64px" width="64px" className="rounded-lg" />
+                        <div className="flex flex-col gap-2">
+                          <Skeleton height="20px" width="150px" />
+                          <Skeleton height="14px" width="200px" />
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6"><Skeleton height="24px" width="100px" className="rounded-full" /></td>
+                    <td className="px-6 py-6"><Skeleton height="24px" width="60px" /></td>
+                    <td className="px-6 py-6"><Skeleton height="20px" width="50px" /></td>
+                    <td className="px-6 py-6"><Skeleton height="24px" width="44px" className="rounded-full" /></td>
+                    <td className="px-8 py-6 text-right">
+                      <div className="flex justify-end gap-2">
+                        <Skeleton height="32px" width="32px" className="rounded-full" />
+                        <Skeleton height="32px" width="32px" className="rounded-full" />
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                getFilteredItems().map(item => (
+                  <tr key={item.id} className={`group hover:bg-[#f7f3ec]/50 transition-colors ${!item.available ? "opacity-60 grayscale-[0.5]" : ""}`}>
+                    <td className="px-8 py-6">
+                      <div className="flex items-center gap-4">
+                        <div className="relative">
+                          <img alt={item.name} className="w-16 h-16 rounded-lg object-cover shadow-sm" src={item.image} />
+                          {item.isBestseller && (
+                            <span className="absolute -top-2 -left-2 bg-[#006579] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                              Bestseller
+                            </span>
+                          )}
+                        </div>
+                        <div>
+                          <h4 className="font-headline font-bold text-lg text-[#1c1c18]">{item.name}</h4>
+                          <p className="text-xs text-[#534437] opacity-70">{item.description}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6">
+                      <span className="text-xs font-medium px-3 py-1 bg-[#ebe8e1] rounded-full">{item.category}</span>
+                    </td>
+                    <td className="px-6 py-6" width="10%">
+                      <span className="font-headline font-bold text-[#894d00]">₹{item.price.toFixed(2)}</span>
+                    </td>
+                    <td className="px-6 py-6">
+                      <div className="flex gap-2">
+                        {item.dietary.map(icon => (
+                          <span key={icon} className={`material-symbols-outlined text-sm ${icon === "eco" ? "text-green-700" : icon === "local_fire_department" ? "text-red-600" : "text-blue-600"}`}>
+                            {icon}
                           </span>
-                        )}
+                        ))}
                       </div>
-                      <div>
-                        <h4 className="font-headline font-bold text-lg text-[#1c1c18]">{item.name}</h4>
-                        <p className="text-xs text-[#534437] opacity-70">{item.description}</p>
+                    </td>
+                    <td className="px-6 py-6">
+                      <label className="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" className="sr-only peer" checked={item.available} onChange={() => toggleAvailability(item.id)} />
+                        <div className="w-11 h-6 bg-[#e6e2db] rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-[#894d00] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                      </label>
+                    </td>
+                    <td className="px-8 py-6 text-right">
+                      <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button className="p-2 hover:bg-[#f1ede6] text-[#534437] rounded-full transition-colors"><span className="material-symbols-outlined">edit</span></button>
+                        <button className="p-2 hover:bg-red-100 text-red-600 rounded-full transition-colors"><span className="material-symbols-outlined">delete</span></button>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-6">
-                    <span className="text-xs font-medium px-3 py-1 bg-[#ebe8e1] rounded-full">{item.category}</span>
-                  </td>
-                  <td className="px-6 py-6" width="10%">
-                    <span className="font-headline font-bold text-[#894d00]">₹{item.price.toFixed(2)}</span>
-                  </td>
-                  <td className="px-6 py-6">
-                    <div className="flex gap-2">
-                      {item.dietary.map(icon => (
-                        <span key={icon} className={`material-symbols-outlined text-sm ${icon === "eco" ? "text-green-700" : icon === "local_fire_department" ? "text-red-600" : "text-blue-600"}`}>
-                          {icon}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                  <td className="px-6 py-6">
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" className="sr-only peer" checked={item.available} onChange={() => toggleAvailability(item.id)} />
-                      <div className="w-11 h-6 bg-[#e6e2db] rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-[#894d00] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-                    </label>
-                  </td>
-                  <td className="px-8 py-6 text-right">
-                    <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="p-2 hover:bg-[#f1ede6] text-[#534437] rounded-full transition-colors"><span className="material-symbols-outlined">edit</span></button>
-                      <button className="p-2 hover:bg-red-100 text-red-600 rounded-full transition-colors"><span className="material-symbols-outlined">delete</span></button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
           <div className="px-8 py-6 flex items-center justify-between bg-[#f7f3ec] border-t border-[#f1ede6]">
